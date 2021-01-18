@@ -37,6 +37,19 @@ const CoinList = () => {
                     />
                 </form>
             </div>
+            <div className='coin-container'>
+                <div className='coin-row'>
+                    <div className='coin'>
+                        <h1 className="nav-coin">Coin</h1>
+                        <div className='coin-data'>
+                            <p className="nav-coin-price">price</p>
+                            <p className="nav-coin-volume">Volume</p>
+                            <p className="nav-coin-percent">24h</p>
+                            <p className="nav-coin-marketcap ">Market Cap.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
             {filteredCoins.map(coin => {
                 return (
                     <Coin
@@ -49,6 +62,7 @@ const CoinList = () => {
                         image={coin.image}
                         priceChange={coin.price_change_percentage_24h}
                     />
+
                 );
             })}
         </div>
