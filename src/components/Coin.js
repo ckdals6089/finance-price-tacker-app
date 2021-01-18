@@ -1,6 +1,7 @@
 import React from 'react';
-
-const Coin = ({ name,
+import './Coin.css';
+const Coin = ({
+    name,
     price,
     symbol,
     marketcap,
