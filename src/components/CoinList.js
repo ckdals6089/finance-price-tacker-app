@@ -1,28 +1,20 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import { COIN_API_URL } from '../config';
+import React, { useState, useContext } from 'react';
 import Coin from './Coin';
+import './Coin.css';
+import { CoinContext } from './CoinContext';
 
 const CoinList = () => {
-    const [coins, setCoins] = useState([]);
+
+    const [coins, setCoins] = useContext(CoinContext);
     const [search, setSearch] = useState('');
-
-    useEffect(() => {
-        axios.get(COIN_API_URL)
-            .then(res => {
-                setCoins(res.data);
-                console.log(res.data);
-            })
-            .catch(error => console.log(error));
-    }, []);
-
-    const handleChange = e => {
-        setSearch(e.target.value);
-    };
 
     const filteredCoins = coins.filter(coin =>
         coin.name.toLowerCase().includes(search.toLowerCase())
     );
+
+    const handleChange = e => {
+        setSearch(e.target.value);
+    };
 
     return (
         <div className='coin-app'>

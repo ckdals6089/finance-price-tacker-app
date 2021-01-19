@@ -1,12 +1,15 @@
 import React from 'react';
 import './App.css';
 import CoinList from './components/CoinList';
+import { CoinProvider } from './components/CoinContext';
 
 function App() {
   return (
-    <div>
-      <CoinList />
-    </div>
+    <CoinProvider>
+      <div className="App">
+        <CoinList />
+      </div>
+    </CoinProvider>
   )
 }
 
